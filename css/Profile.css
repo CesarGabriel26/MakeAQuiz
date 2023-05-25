@@ -1,0 +1,128 @@
+main {
+    margin-left: 50px;
+    margin-right: 50px;
+    height: 100%;
+    display: block;
+}
+
+.userprofile {
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    height: fit-content;
+}
+
+.pfp_profile #PFP,
+.pfp_profile {
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    width: 100px;
+}
+
+.pfp_profile .edit {
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background: rgba(0, 0, 0, 0.616);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: .5s;
+}
+
+.pfp_profile .edit:hover {
+    opacity: 1;
+}
+
+.userprofile .user {
+    display: flex;
+}
+
+.userprofile .infos {
+    margin-left: 10px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+}
+
+.userprofile .infos .Nome {
+    font-size: 25px;
+
+}
+
+.userprofile .butons {
+    display: flex;
+    flex-direction: column;
+}
+
+.userprofile .butons button {
+    width: 200px;
+
+    height: 40px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+
+    border: none;
+    outline: none;
+    background: var(--Terciaria);
+    padding-left: 5px;
+    color: var(--Textos);
+
+    border-radius: 10px;
+    transition: .5s;
+}
+
+.userprofile .butons button:hover {
+    background: var(--Textos);
+    color: var(--Terciaria);
+    border: none;
+}
+
+.container {
+    margin-top: 20px;
+    display: flex;
+}
+
+.Bestscore {
+    width: 300px;
+    height: 200px;
+    background: var(--Terciaria);
+
+    border-radius: 10px;
+}
+
+.right {
+    margin-left: 10px;
+    width: 100%;
+    height: 100%;
+}
+
+.scoreHistori {
+    width: 300px;
+    margin-top: 20px;
+    height: 200px;
+    background: var(--Terciaria);
+
+    border-radius: 10px;
+}
+
+.historicodejogos {
+    width: 100%;
+    height: 420px;
+
+    background: var(--Terciaria);
+    border-radius: 10px;
+}
+
+h3 {
+    margin-top: 10px;
+    width: 100%;
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+}

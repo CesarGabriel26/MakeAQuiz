@@ -1,0 +1,66 @@
+<!DOCTYPE html5>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Quiz 2.0 - SingUp</title>
+
+    <link rel="stylesheet" href="../css/root.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/login.css">
+
+    <link rel="shortcut icon" href="../img/icons/Logo.png" type="image/x-icon">
+
+</head>
+
+<body>
+
+    <section id="section">
+
+        <div class="LoginContainer">
+
+            <div>
+                <img src="../img/icons/Logo.png" alt="" ondragstart="return false" oncontextmenu="return false">
+            </div>
+
+            <div class="Message">Cadastro Efetuado Com Sucesso volte ao login para entrar</div>
+
+            <form method="" id="SingUpForm">
+
+                <input type="text"   autocomplete="username" required name="UserName" id="UserName" placeholder="Nome de Usuario" autofocus>
+
+                <input type="text" autocomplete="email" required name="Email" id="Email" placeholder="Email">
+
+
+                <div class="PassWordInp">
+
+                    <input type="password" required name="PassWord" id="PassWord" placeholder="Senha" autocomplete="current-password">
+                    <button type="button" id="ShowPassWord"><img id="ImgShow"  src="../svg/eye-outline.svg" alt=""></button>
+
+                </div>
+
+                <input type="password" required name="ConfirmPassWord" id="ConfirmPassWord" placeholder="Confirme sua senha" autocomplete="current-password">
+
+                <label for="pfpInput" id="pfpInputText">Escolha uma foto de perfil</label>
+                <input type="file" id="pfpInput" value="">
+
+                <button type="button" id="ConfirmButton">cadastrar-se</button>
+                <a href="login.html" class="ConfirmButton">Voltar</a>
+                
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <script src="../js/Login-SingUp.js"></script>
+    <script src="../js/firebase.js"></script>
+
+
+</body>
+
+</html>

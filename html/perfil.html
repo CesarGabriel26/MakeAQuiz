@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Document</title>
+
+
+    <link rel="stylesheet" href="../css/root.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/Profile.css">
+</head>
+
+<body>
+
+    <header>
+
+        <img src="../img/icons/Logo.png" class="Logo" style="height: 50px;">
+
+        <nav>
+            <ul>
+                <li><a href="#">
+                        <p>&#x23EC;</p>Jogos
+                    </a></li>
+                <li><a href="#">
+                        <p>&#x23EC;</p>Contate-nos
+                    </a></li>
+                <li><a href="#">
+                        <p>&#x23EC;</p>Relatar Bugs
+                    </a></li>
+            </ul>
+        </nav>
+
+        <a href="html/login.html" class="userPfp">
+            <img id="PFP" src="../svg/person-circle-outline.svg" alt="" style="height: 80px;">
+        </a>
+
+    </header>
+
+
+    <main>
+
+        <div class="userprofile">
+
+            <div class="user">
+                <div class="pfp_profile">
+                    <img id="PFP" src="../svg/person-circle-outline.svg" alt="">
+                    <div class="edit" onclick="ChangePfp()">
+                        <p>Trocar foto</p>
+                        <input type="file" id="ChoseFIle" style="display: none;">
+                    </div>
+                </div>
+
+                <div class="infos">
+
+                    <div id="Nome" class="Nome"></div>
+
+
+                </div>
+            </div>
+
+            <div class="butons">
+                <button onclick="LogOut()">Log Out</button>
+            </div>
+
+        </div>
+
+        <div class="container">
+
+            <div class="left">
+
+                <div class="Bestscore">
+                    <h3>Best Score</h3>
+                </div>
+                <div class="scoreHistori">
+                    <h3>Score History</h3>
+                </div>
+
+            </div>
+            <div class="right">
+
+                <div class="historicodejogos">
+                    <h3>Favorite Games</h3>
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <script src="../js/firebase.js"></script>
+    <script>
+
+        let ChoseFIle = document.getElementById("ChoseFIle")
+
+        if (localStorage.getItem("UserName") != "") {
+            document.getElementById("Nome").innerHTML = `<h2>${localStorage.getItem('UserName')}</h2>`
+
+            //document.getElementById("Senha").innerHTML = `<input type="password"  value="${localStorage.getItem('PassWord')}" readonly id="PassWord" >`
+
+            //document.getElementById("Email").innerHTML = `<h2>${localStorage.getItem('Email')}</h2>`
+
+            var pfp = document.querySelectorAll("#PFP")
+            pfp.forEach(Pf => {
+                Pf.src = localStorage.getItem('Pfp')
+            })
+
+        }
+
+        function LogOut() {
+            localStorage.setItem('UserName', "")
+            localStorage.setItem('PassWord', "")
+            localStorage.setItem('Email', "")
+            localStorage.setItem('Pfp', "")
+
+    
+            window.location.href = '../index.html'
+
+        }
+
+        function ChangePfp() {
+            ChoseFIle.click()
+        }
+
+    </script>
+
+</body>
+
+</html>
