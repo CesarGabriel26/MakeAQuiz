@@ -74,7 +74,12 @@ const SaveData = (UserName, UserEmail, UserPassWord, PfpPath) => {
     NewUserForm.update({
         Email: UserEmail,
         PassWord: UserPassWord,
-        Pfp: PfpPath
+        Pfp: PfpPath,
+        BestScore: 0,
+        ScoreHistory: {
+            0:0,
+            1:0
+        }
     })
 
 
@@ -110,10 +115,13 @@ function EfetuarLogin(data) {
     var UserName = getElementValue('UserName')
     var PassWord = getElementValue('PassWord')
 
-    var Email = data[0]
-    var DataPassWord = data[1]
-    var Pfp = data[2]
+    var Email = data[1]
+    var DataPassWord = data[2]
+    var Pfp = data[3]
+    var BestScore = data[0]
+    var ScoreHistory = data[4]
 
+    console.log(DataPassWord);
 
     if (PassWord == DataPassWord) {
         Message.innerHTML = `Login efetuado`
@@ -129,11 +137,13 @@ function EfetuarLogin(data) {
         localStorage.setItem('PassWord', DataPassWord)
         localStorage.setItem('Email', Email)
         localStorage.setItem('Pfp', Pfp)
+        localStorage.setItem('BestScore', BestScore)
+        localStorage.setItem('ScoreHistory', ScoreHistory)
 
         window.location.href = 'perfil.html'
 
     } else {
-        Message.innerHTML = `Nome de usuario,Email ou senha incorreto`
+        Message.innerHTML = `senha incorreto`
         Message.style.display = "flex"
         setTimeout(() => {
             Message.style.display = "none"
@@ -168,6 +178,41 @@ function UpdatePfp(path) {
     pfp.forEach(Pf => {
         Pf.src = localStorage.getItem('Pfp')
     })
+
+}
+
+function UpdateScore(NewScore) {
+    
+    var NewUserForm = Users_DB.ref('Usuarios').child(localStorage.getItem('UserName'));
+
+    var data = []
+    var NewBestScore = 0
+
+    Users_DB.ref("Usuarios/" + UserName).on('value', (Snapshot) => {
+
+        Snapshot.forEach(Get_password_Username => {
+            data.push(Get_password_Username.val())
+        })
+    });
+
+    var BestScore = data[0]
+    var ScoreHistory = data[4]
+
+    if (NewScore > BestScore) {
+        NewBestScore = NewScore
+        ScoreHistory.push(BestScore)
+    }else {
+        NewBestScore = BestScore
+        ScoreHistory.push(NewScore)
+    }
+
+    NewUserForm.update({
+        BestScore: NewBestScore,
+        ScoreHistory: ScoreHistory,
+    })
+
+    localStorage.setItem('BestScore', NewBestScore)
+    localStorage.setItem('ScoreHistory', ScoreHistory)
 
 }
 

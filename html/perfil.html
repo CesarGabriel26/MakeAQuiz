@@ -10,7 +10,11 @@
 
     <link rel="stylesheet" href="../css/root.css">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/card.css">
     <link rel="stylesheet" href="../css/Profile.css">
+
+    <link rel="shortcut icon" href="../img/icons/Logo.png" type="image/x-icon">
+
 </head>
 
 <body>
@@ -72,17 +76,58 @@
             <div class="left">
 
                 <div class="Bestscore">
-                    <h3>Best Score</h3>
+                    <h3>Melhor Pontuação</h3>
+                    <div id="Bestscore"></div>
                 </div>
                 <div class="scoreHistori">
-                    <h3>Score History</h3>
+                    <h3>Historico de pontuação</h3>
+                    <div id="scoreHistori"></div>
                 </div>
 
             </div>
             <div class="right">
 
                 <div class="historicodejogos">
-                    <h3>Favorite Games</h3>
+                    <h3>Jogos disponiveis</h3>
+
+                    <div class="cards">
+                        <a href="jogo/Tutorial.html" class="CardOpcao">
+                            <div class="imagemContainer">
+                                <img src="../img/cards/MatematicaBasica.png" class="Image">
+                            </div>
+
+                            <h3 class="Texto">Tutorial</h3>
+
+                        </a>
+
+                        <div class="CardOpcao">
+                            <div class="imagemContainer">
+                                <img src="../img/cards/MatematicaBasica.png" class="Image">
+                            </div>
+
+                            <h3 class="Texto">Matematica basica</h3>
+
+                        </div>
+
+                        <div class="CardOpcao">
+                            <div class="imagemContainer">
+                                <img src="../img/cards/MatematicaBasica.png" class="Image">
+                            </div>
+
+                            <h3 class="Texto">Potencias e raizes</h3>
+
+                        </div>
+
+                        <div class="CardOpcao">
+                            <div class="imagemContainer">
+                                <img src="../img/cards/MatematicaBasica.png" class="Image">
+                            </div>
+
+                            <h3 class="Texto">Porcentagens e juros</h3>
+
+                        </div>
+
+                    </div>
                 </div>
 
             </div>
@@ -91,42 +136,9 @@
 
     </main>
 
+    <script src="../js/Profile.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
     <script src="../js/firebase.js"></script>
-    <script>
-
-        let ChoseFIle = document.getElementById("ChoseFIle")
-
-        if (localStorage.getItem("UserName") != "") {
-            document.getElementById("Nome").innerHTML = `<h2>${localStorage.getItem('UserName')}</h2>`
-
-            //document.getElementById("Senha").innerHTML = `<input type="password"  value="${localStorage.getItem('PassWord')}" readonly id="PassWord" >`
-
-            //document.getElementById("Email").innerHTML = `<h2>${localStorage.getItem('Email')}</h2>`
-
-            var pfp = document.querySelectorAll("#PFP")
-            pfp.forEach(Pf => {
-                Pf.src = localStorage.getItem('Pfp')
-            })
-
-        }
-
-        function LogOut() {
-            localStorage.setItem('UserName', "")
-            localStorage.setItem('PassWord', "")
-            localStorage.setItem('Email', "")
-            localStorage.setItem('Pfp', "")
-
-    
-            window.location.href = '../index.html'
-
-        }
-
-        function ChangePfp() {
-            ChoseFIle.click()
-        }
-
-    </script>
 
 </body>
 
