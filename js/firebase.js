@@ -231,6 +231,8 @@ function savequiz(QuizName, QuizLevels, QuizImage, QuestionsArray) {
 
 }
 
+
+
 function loadquiz() {
 
     var data = []
@@ -249,13 +251,13 @@ function loadquiz() {
 function LoadQuizFromMyList() {
     var data = []
 
-    Users_DB.ref("Usuarios/"+localStorage.getItem('UserName')+"/MyList").on('value', (Snapshot) => {
+    Users_DB.ref("Usuarios/" + localStorage.getItem('UserName') + "/MyList").on('value', (Snapshot) => {
 
         Snapshot.forEach(Get_password_Username => {
             data.push(Get_password_Username.val())
         })
-        addcards(data)
-    }); 
+        addcardsToprofile(data)
+    });
 }
 
 function addcards(data_) {
@@ -264,6 +266,7 @@ function addcards(data_) {
 
     data_.forEach(dat => {
         if (dat != "none") {
+            console.log(dat);
             var Name = dat['Name']
             var Pfp = dat['Pfp']
 
@@ -281,6 +284,44 @@ function addcards(data_) {
         
             `
             cards.innerHTML += html
+        }
+    })
+}
+
+function addcardsToprofile(data_) {
+    let cards = document.getElementById('cards')
+    cards.innerHTML = ""
+
+    data_.forEach(dat => {
+        if (dat != "none") {
+            
+
+            Users_DB.ref("quizzes/" + dat).on('value', (Snapshot) => {
+
+                var data = []
+                Snapshot.forEach(Get_password_Username => {
+                    data.push(Get_password_Username.val())
+                })
+
+                var Name = data[1]
+                var Pfp = data[2]
+
+
+                var html = `
+        
+                <a onclick="GotoQuiz('${Name}')" id="card" class="CardOpcao">
+                    <div class="imagemContainer">
+                        <img src="${Pfp}" class="Image">
+                    </div>
+            
+                    <h3  class="Texto">${Name}</h3>
+            
+                </a>
+            
+                `
+                cards.innerHTML += html
+
+            });
         }
     })
 }

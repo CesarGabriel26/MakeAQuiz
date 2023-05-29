@@ -131,7 +131,6 @@ function SaveOnList() {
             }
         })
     }else {
-        MyList_ = []
         MyList_.push(localStorage.getItem('Quiz'))
     }
 
