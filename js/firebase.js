@@ -247,7 +247,6 @@ function addcards(data_) {
     let cards = document.getElementById('cards')
     cards.innerHTML = ""
   
-    console.log(data_);
   
     
     var Name = data_['Name']
