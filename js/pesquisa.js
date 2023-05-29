@@ -1,11 +1,12 @@
-let PesqInput = document.getElementById("Pesquisar")
-let Cards = document.querySelectorAll("#card")
 
 window.addEventListener('load', ()=>{
   loadquiz()
 })
 
 function pesquisar(){
+  let Cards = document.querySelectorAll("#card")
+  let PesqInput = document.getElementById("Pesquisar")
+
   var filtro
   var Titulos = []
   
