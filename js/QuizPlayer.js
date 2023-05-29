@@ -144,6 +144,6 @@ function SaveOnList() {
 }
 
 function Voltar() {
-    window.location.href = 'jogos.html'
+    window.location.href = 'Jogos.html'
     localStorage.setItem('Quiz', "")
 }
