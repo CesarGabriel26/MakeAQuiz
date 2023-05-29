@@ -105,7 +105,12 @@ function Avancar() {
     }else{
         Play_Audio("Vitoria")
         let Finalizar = document.getElementById('Finalizar')
+        let Acertos = document.getElementById('Acertos')
+        let Erros = document.getElementById('Erros')
+
         Finalizar.style.display = "flex"
+        Acertos.innerHTML = `Acertos: &#9989; &nbsp; ${Status["Acertos"]}`
+        Erros.innerHTML = `Erros: &#10060; &nbsp; ${Status["Erros"]}`
     }
 }
 
