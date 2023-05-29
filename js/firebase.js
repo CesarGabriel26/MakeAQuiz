@@ -77,8 +77,8 @@ const SaveData = (UserName, UserEmail, UserPassWord, PfpPath) => {
         Pfp: PfpPath,
         BestScore: 0,
         ScoreHistory: {
-            0:0,
-            1:0
+            0: 0,
+            1: 0
         }
     })
 
@@ -108,18 +108,19 @@ if (ConfirmButtonLogin) {
     });
 }
 
-
 function EfetuarLogin(data) {
 
 
     var UserName = getElementValue('UserName')
     var PassWord = getElementValue('PassWord')
 
-    var Email = data[1]
-    var DataPassWord = data[2]
-    var Pfp = data[3]
+
     var BestScore = data[0]
-    var ScoreHistory = data[4]
+    var Email = data[1]
+    var MyList = data[2]
+    var DataPassWord = data[3]
+    var Pfp = data[4]
+    var ScoreHistory = data[5]
 
     console.log(DataPassWord);
 
@@ -139,7 +140,8 @@ function EfetuarLogin(data) {
         localStorage.setItem('Pfp', Pfp)
         localStorage.setItem('BestScore', BestScore)
         localStorage.setItem('ScoreHistory', ScoreHistory)
-
+        localStorage.setItem('MyList', MyList)
+        
         window.location.href = 'perfil.html'
 
     } else {
@@ -171,7 +173,6 @@ function UpdatePfp(path) {
         Pfp: path
     })
 
-    console.log(path);
 
     localStorage.setItem('Pfp', path)
     var pfp = document.querySelectorAll("#PFP")
@@ -182,7 +183,7 @@ function UpdatePfp(path) {
 }
 
 function UpdateScore(NewScore) {
-    
+
     var NewUserForm = Users_DB.ref('Usuarios').child(localStorage.getItem('UserName'));
 
     var data = []
@@ -201,7 +202,7 @@ function UpdateScore(NewScore) {
     if (NewScore > BestScore) {
         NewBestScore = NewScore
         ScoreHistory.push(BestScore)
-    }else {
+    } else {
         NewBestScore = BestScore
         ScoreHistory.push(NewScore)
     }
@@ -216,7 +217,55 @@ function UpdateScore(NewScore) {
 
 }
 
+function savequiz(QuizName, QuizLevels, QuizImage, QuestionsArray) {
+    var Quiz_DB = Users_DB.ref('quizzes').child(QuizName);
 
 
+    Quiz_DB.update({
+        Name: QuizName,
+        Levels: QuizLevels,
+        Pfp: QuizImage,
+        Questions: QuestionsArray
+    })
+
+}
+
+function loadquiz() {
+
+    Users_DB.ref("quizzes").on('value', (Snapshot) => {
+
+        Snapshot.forEach(Get_password_Username => {
+            data = Get_password_Username.val()
+            addcards(data)
+        })
+    });
+
+    
+}
+
+function addcards(data_) {
+    let cards = document.getElementById('cards')
+    cards.innerHTML = ""
+  
+    console.log(data_);
+  
+    
+    var Name = data_['Name']
+    var Pfp = data_['Pfp']
 
 
+    var html = `
+    
+    <a onclick="GotoQuiz('${Name}')" id="card" class="CardOpcao">
+        <div class="imagemContainer">
+            <img src="${Pfp}" class="Image">
+        </div>
+
+        <h3  class="Texto">${Name}</h3>
+
+    </a>
+
+    `
+    cards.innerHTML += html
+  
+}

@@ -1,0 +1,18 @@
+#Pergunta {
+    border: 1px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#opcao {
+    resize: none;
+    width: 100%;
+    min-height: 100px;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    border: 1px solid white;
+    justify-content: center;
+    color: black;
+}

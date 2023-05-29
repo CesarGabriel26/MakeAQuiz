@@ -1,0 +1,110 @@
+<!DOCTYPE html5>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Make a Quiz</title>
+
+
+    <link rel="stylesheet" href="../css/root.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/QuizEditor.css">
+
+    <link rel="shortcut icon" href="../img/icons/Logo.png" type="image/x-icon">
+</head>
+<body>
+
+    <header>
+
+
+        <textarea name="" id="Pergunta" placeholder="Texto da questão aqui"></textarea>
+
+    </header>
+
+    <main>
+
+        <div class="centro">
+
+        </div>
+
+        <div class="opcoes">
+
+            <div class="opcao a">
+
+
+                <textarea name="" id="opcaoinp" placeholder="Texto da resposa A"></textarea>
+
+            </div>
+            <div class="opcao b">
+
+
+                <textarea name="" id="opcaoinp" placeholder="Texto da resposa B"></textarea>
+
+            </div>
+            <div class="opcao c">
+
+
+                <textarea name="" id="opcaoinp" placeholder="Texto da resposa C"></textarea>
+
+            </div>
+            <div class="opcao d">
+
+
+                <textarea name="" id="opcaoinp" placeholder="Texto da resposa D"></textarea>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <form id="Finalizar">
+        <label>Indique um nome para seu quiz que sera usado para encontralo na pesquisa</label>
+        <input type="text" id="NomeQuiz" placeholder="Nome do Quiz" required>
+        <button type="button"  id="ImagemQuiz">Escolha uma foto para o quiz</button>
+        <button type="button" onclick="SaveQuizOnFireBase()">Crie meu Quiz!</button>
+        <button type="button"  onclick="Voltar()">Volte!</button>
+    </form>
+
+    <footer>
+        
+        <div class="opcaocerta">
+
+            <h4 id="ShakeText">Indique a opção correta</h4>
+
+            <div class="checkbox">
+                <input type="radio" name="OpcaoCerta" id="checkbox" class="check a">
+                <input type="radio" name="OpcaoCerta" id="checkbox" class="check b">
+                <input type="radio" name="OpcaoCerta" id="checkbox" class="check c">
+                <input type="radio" name="OpcaoCerta" id="checkbox" class="check d">
+            </div>
+        </div>
+                
+        <div class="controles">
+            <a href="jogos.html" id="BackToHome"><img src="../svg/backspace-outline.svg" alt=""></a>
+            <button id="Back"><img src="../svg/arrow-back-outline.svg" alt=""></button>
+            <button id="Delet"><img src="../svg/trash-outline.svg" alt=""></button>
+            
+            <div id="contador">
+                <h3>0</h3>
+            </div>
+            
+            <button id="Add"><img src="../svg/add-outline.svg" alt=""></button>
+            <button id="Forward"><img src="../svg/arrow-forward-outline.svg" alt=""></button>
+            <button id="BuildQuiz"><img src="../svg/hammer-outline.svg" alt=""></button>
+        
+        </div>
+
+    </footer>
+
+    <input type="file" style="opacity: 0; position: absolute; top: 100;" id="ImagemQuizINP"required>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <script src="../js/firebase.js"></script>
+    <script src="../js/QuizEditor.js"></script>
+
+
+
+</body>
+</html>

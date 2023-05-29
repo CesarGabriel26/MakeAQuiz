@@ -2,8 +2,12 @@ let ChoseFIle = document.getElementById("ChoseFIle")
 let Bestscore = document.getElementById("Bestscore")
 let scoreHistori = document.getElementById("scoreHistori")
 
+
+
 if (localStorage.getItem("UserName") != "") {
+
     document.getElementById("Nome").innerHTML = `<h2>${localStorage.getItem('UserName')}</h2>`
+
 
     //document.getElementById("Senha").innerHTML = `<input type="password"  value="${localStorage.getItem('PassWord')}" readonly id="PassWord" >`
 
@@ -15,6 +19,10 @@ if (localStorage.getItem("UserName") != "") {
     })
 
     UpdateScoreDisplay()
+
+    window.addEventListener('load', () => {
+        loadquiz()
+    })
 
 }
 
@@ -48,4 +56,9 @@ function UpdateScoreDisplay() {
         scoreHistori.innerHTML += `<p>${value}</p>`
 
     })
+}
+
+function GotoQuiz(quiz) {
+    localStorage.setItem('Quiz', quiz)
+    window.location.href = 'QuizPlayer.html'
 }

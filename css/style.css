@@ -54,6 +54,8 @@ header .userPfp {
     cursor: pointer;
     overflow: hidden;
     border-radius: 50px;
+    height: 80px;
+    width: 80px;
 }
 
 main {

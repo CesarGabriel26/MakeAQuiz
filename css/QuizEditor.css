@@ -1,0 +1,261 @@
+footer,
+header {
+    background: var(--Segundaria);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+}
+
+main {
+    height: 69.6%;
+}
+
+textarea::placeholder,
+textarea {
+    color: white;
+
+}
+
+#Pergunta {
+    width: 95%;
+    height: 95%;
+    text-align: center;
+    background-color: transparent;
+    resize: none;
+}
+
+/* ?  OPÇÕES */
+
+.opcoes {
+    margin-left: 20px;
+    margin-right: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.opcao {
+    padding: 5px;
+    position: relative;
+
+    min-width: 40%;
+    height: fit-content
+}
+
+.opcao textarea {
+    resize: none;
+    width: 100%;
+    min-height: 100px;
+    background-color: transparent;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.opcao.a,
+.opcao.b {
+    margin-bottom: 20px;
+}
+
+.opcao.a,
+.opcao.c {
+    margin-right: 20px;
+}
+
+.opcao.a {
+    background: var(--opcao_a);
+}
+
+.opcao.b {
+    background: var(--opcao_b);
+}
+
+.opcao.c {
+    background: var(--opcao_c);
+}
+
+.opcao.d {
+    background: var(--opcao_d);
+}
+
+/* ! FERRAMENTAS DE EDIÇÃO */
+
+footer {
+    position: relative;
+}
+
+.opcaocerta {
+    position: absolute;
+    top: -60;
+}
+
+/*? animation */
+
+.opcaocerta h4.horizontal-shake {
+    animation: horizontal-shaking 0.35s ;
+}
+
+@keyframes horizontal-shaking {
+    0% {
+        transform: translateX(0)
+    }
+
+    25% {
+        transform: translateX(5px)
+    }
+
+    50% {
+        transform: translateX(-5px)
+    }
+
+    75% {
+        transform: translateX(5px)
+    }
+
+    100% {
+        transform: translateX(0)
+    }
+}
+
+/*?=========================================================================*/
+
+.checkbox {
+    background: var(--Segundaria);
+    padding: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.check {
+    width: 20px;
+    height: 20px;
+    appearance: none;
+    background-color: rgb(255, 255, 255);
+    margin: 0;
+    font: inherit;
+    color: currentColor;
+    border: 1px solid currentColor;
+    border-radius: 50%;
+}
+
+.check::before {
+    display: block;
+    content: "";
+    width: 0.65em;
+    height: 0.65em;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    background: var(--Terciaria);
+    margin-top: 3px;
+    margin-left: 3px;
+}
+
+.check:checked::before {
+    transform: scale(1);
+}
+
+.check.a {
+    background: var(--opcao_a);
+}
+
+.check.b {
+    background: var(--opcao_b);
+}
+
+.check.c {
+    background: var(--opcao_c);
+}
+
+.check.d {
+    background: var(--opcao_d);
+}
+
+/* * CONTROLES */
+
+.controles {
+    display: flex;
+    justify-content: center;
+}
+
+.controles #BackToHome,
+.controles button {
+    background: var(--Terciaria);
+    width: 50px;
+    height: 50px;
+    transition: .5s;
+    border: none;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.controles #BackToHome img,
+.controles button img {
+    height: 30px;
+}
+
+.controles #BackToHome:hover,
+.controles button:hover {
+    background: var(--Textos);
+}
+
+.controles button:disabled {
+    background: var(--Disabled);
+}
+
+#contador {
+    background: var(--Terciaria);
+    padding: 10px;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+}
+
+#contador h3 {
+    font-size: 25px;
+}
+
+/*===================*/
+
+#Finalizar {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    background: rgba(0, 0, 0, 0.596);
+    z-index: 10;
+
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#Finalizar label {
+    font-size: 30px;
+    margin-bottom: 30px;
+    text-shadow: -1px -1px 0 var(--Outline), 1px -1px 0 var(--Outline), -1px 1px 0 var(--Outline), 1px 1px 0 var(--Outline);
+}
+
+#Finalizar button,
+#NomeQuiz {
+    height: 40px;
+    width: 300px;
+    padding-left: 10px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    border: none;
+    background: var(--Terciaria);
+    color: var(--Textos);
+}
+#Finalizar button{text-transform: uppercase;font-weight: bold;transition: .5s;}
+#Finalizar button:hover {
+    background: var(--Textos);
+    color: var(--Terciaria);
+}

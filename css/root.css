@@ -7,6 +7,19 @@
     --Textos: #E56E00;
     --Textos-Branco: white;
 
+    --Outline: rgb(200, 224, 222);
+
     --Border_color: rgb(19, 19, 223);
+
+    /* ! OPÇÕES E RESPOSTAS */
+
+    --opcao_a: rgb(110, 202, 110);
+    --opcao_b: rgb(236, 199, 130);
+    --opcao_c: rgb(130, 132, 236);
+    --opcao_d: rgb(236, 130, 130);
+
+    /* ! BOTÕES */
+
+    --Disabled: #10101d;
 
 }

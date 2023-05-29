@@ -1,0 +1,84 @@
+main {
+    display: block;
+
+    margin: 40px;
+
+}
+
+.BarraDePesquisa {
+    width: 100%;
+    display: flex;
+}
+
+.BarraDePesquisa input {
+    border: none;
+    outline: none;
+    background: var(--Terciaria);
+    padding-left: 5px;
+    color: var(--Textos);
+
+    width: 96%;
+    height: 40px;
+
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+
+    border-right: 2px solid var(--Border_color);
+    border-bottom: 2px solid var(--Border_color);
+
+}
+
+.BarraDePesquisa input::placeholder {
+    text-transform: uppercase;
+}
+
+.BarraDePesquisa input[type="image"] {
+    width: 4%;
+    height: 40px;
+
+    border-radius: 0;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+    border: none;
+    outline: none;
+
+    background: var(--Terciaria);
+    color: var(--Textos);
+
+    border-bottom: 2px solid var(--Border_color);
+
+    transition: .5s;
+}
+
+.BarraDePesquisa input[type="image"]:hover {
+    background: var(--Textos);
+    color: var(--Terciaria);
+}
+
+.button {
+    margin-top: 30px;
+    margin-bottom: 40px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button a {
+    height: 40px;
+    width: 150px;
+    color: var(--Textos);
+    background: var(--Terciaria);
+    border: none;
+    border-radius: 10px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .5s;
+}
+.button a:hover {
+    color: var(--Terciaria);
+    background: var(--Textos);
+}

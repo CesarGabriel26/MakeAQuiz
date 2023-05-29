@@ -1,0 +1,70 @@
+<!DOCTYPE html5>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Make a Quiz</title>
+
+    <link rel="stylesheet" href="../css/root.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/jogos.css">
+    <link rel="stylesheet" href="../css/card.css">
+
+    <link rel="shortcut icon" href="../img/icons/Logo.png" type="image/x-icon">
+
+
+
+
+</head>
+<body>
+
+    <header>
+
+        <img src="../img/icons/Logo.png" class="Logo" style="height: 50px;">
+
+        <nav>
+            <ul>
+                <li><a href="#">
+                        <p>&#x23EC;</p>Jogos
+                    </a></li>
+                <li><a href="#">
+                        <p>&#x23EC;</p>Contate-nos
+                    </a></li>
+                <li><a href="#">
+                        <p>&#x23EC;</p>Relatar Bugs
+                    </a></li>
+            </ul>
+        </nav>
+
+        <a href="perfil.html" class="userPfp">
+            <img id="PFP" src="../svg/person-circle-outline.svg" alt="" style="height: 80px;width: 80px;">
+        </a>
+
+    </header>
+
+
+    <main>
+
+        <div class="BarraDePesquisa">
+            <input type="text" onKeyup="pesquisar()" id="Pesquisar" placeholder="Pesquisar">
+            <input type="image" src="../svg/search-outline.svg" alt="">
+        </div>
+
+        <div class="button">
+            <a href="quizeditor.html">Crie seu QUIZ</a>
+        </div>
+
+        <div class="cards" id="cards">
+        </div>
+
+    </main>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <script src="../js/firebase.js"></script>
+    <script src="../js/Pfp.js"></script>
+    <script src="../js/pesquisa.js"></script>
+
+</body>
+</html>

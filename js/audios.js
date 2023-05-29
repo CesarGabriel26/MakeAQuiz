@@ -6,7 +6,7 @@ function Play_Audio(File) {
     audio.src = `../audio/${File}.mp3`
     audio.play()
 
-    sound.addEventListener("ended", () => {
+    audio.addEventListener("ended", () => {
         return true
     })
 

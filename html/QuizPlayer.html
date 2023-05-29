@@ -1,0 +1,84 @@
+<!DOCTYPE html5>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Make a Quiz</title>
+
+
+    <link rel="stylesheet" href="../css/root.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/QuizEditor.css">
+    <link rel="stylesheet" href="../css/QuizPlayer.css">
+    
+    <link rel="shortcut icon" href="../img/icons/Logo.png" type="image/x-icon">
+</head>
+<body>
+
+    <header>
+
+        <p id="Pergunta">Texto</p>
+
+    </header>
+
+    <main>
+
+        <div class="opcoes">
+
+            <div class="opcao a">
+
+
+                <p id="opcao">A</p>
+
+            </div>
+            <div class="opcao b">
+
+                <p id="opcao">B</p>
+
+            </div>
+            <div class="opcao c">
+
+
+                <p id="opcao">C</p>
+
+            </div>
+            <div class="opcao d">
+
+                
+                <p id="opcao">D</p>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer>        
+        <div class="controles">
+            <div id="contador">
+                <h3>0</h3>
+            </div>
+        </div>
+    </footer>
+
+    <form id="Finalizar">
+        <label>Otimo jogo Siga sua Pontuação abaixo</label>
+        
+        <div class="pontuacao">
+            <p id="Acertos"></p>
+            <p id="Erros"></p>
+        </div>
+
+        <button type="button" onclick="SaveOnList()">Adicionar a lista</button>
+        <button type="button"  onclick="Voltar()">Volte!</button>
+    </form>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <script src="../js/QuizPlayer.js"></script>
+    <script src="../js/audios.js"></script>
+
+
+
+</body>
+</html>
