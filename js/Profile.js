@@ -21,7 +21,7 @@ if (localStorage.getItem("UserName") != "") {
     UpdateScoreDisplay()
 
     window.addEventListener('load', () => {
-        loadquiz()
+        LoadQuizFromMyList()    
     })
 
 }

@@ -74,6 +74,7 @@ const SaveData = (UserName, UserEmail, UserPassWord, PfpPath) => {
     NewUserForm.update({
         Email: UserEmail,
         PassWord: UserPassWord,
+        MyList: ["none"],
         Pfp: PfpPath,
         BestScore: 0,
         ScoreHistory: {
@@ -141,7 +142,7 @@ function EfetuarLogin(data) {
         localStorage.setItem('BestScore', BestScore)
         localStorage.setItem('ScoreHistory', ScoreHistory)
         localStorage.setItem('MyList', MyList)
-        
+
         window.location.href = 'perfil.html'
 
     } else {
@@ -232,39 +233,54 @@ function savequiz(QuizName, QuizLevels, QuizImage, QuestionsArray) {
 
 function loadquiz() {
 
+    var data = []
+
     Users_DB.ref("quizzes").on('value', (Snapshot) => {
 
         Snapshot.forEach(Get_password_Username => {
-            data = Get_password_Username.val()
-            addcards(data)
+            data.push(Get_password_Username.val())
         })
+        addcards(data)
     });
 
-    
+
+}
+
+function LoadQuizFromMyList() {
+    var data = []
+
+    Users_DB.ref("Usuarios/"+localStorage.getItem('UserName')+"/MyList").on('value', (Snapshot) => {
+
+        Snapshot.forEach(Get_password_Username => {
+            data.push(Get_password_Username.val())
+        })
+        addcards(data)
+    }); 
 }
 
 function addcards(data_) {
     let cards = document.getElementById('cards')
     cards.innerHTML = ""
-  
-  
-    
-    var Name = data_['Name']
-    var Pfp = data_['Pfp']
+
+    data_.forEach(dat => {
+        if (dat != "none") {
+            var Name = dat['Name']
+            var Pfp = dat['Pfp']
 
 
-    var html = `
-    
-    <a onclick="GotoQuiz('${Name}')" id="card" class="CardOpcao">
-        <div class="imagemContainer">
-            <img src="${Pfp}" class="Image">
-        </div>
-
-        <h3  class="Texto">${Name}</h3>
-
-    </a>
-
-    `
-    cards.innerHTML += html
-  
+            var html = `
+        
+            <a onclick="GotoQuiz('${Name}')" id="card" class="CardOpcao">
+                <div class="imagemContainer">
+                    <img src="${Pfp}" class="Image">
+                </div>
+        
+                <h3  class="Texto">${Name}</h3>
+        
+            </a>
+        
+            `
+            cards.innerHTML += html
+        }
+    })
 }
