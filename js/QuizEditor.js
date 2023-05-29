@@ -14,6 +14,8 @@ let Foward_ = document.getElementById('Forward')
 
 let ImagemQuiz = document.getElementById('ImagemQuiz')
 let ImagemQuizINP = document.getElementById('ImagemQuizINP')
+let img = document.getElementById('img')
+
 
 ImagemQuiz.addEventListener('click', ()=>{
     ImagemQuizINP.click()
@@ -72,7 +74,9 @@ setInterval(() => {
             [Respostas[1].value, RadioButton[1].checked],
             [Respostas[2].value, RadioButton[2].checked],
             [Respostas[3].value, RadioButton[3].checked]
-        ]
+        ],
+
+        img.src
     ]
 
     data_final[Index] = data_atual
@@ -143,6 +147,25 @@ function Del() {
     }
 }
 
+//========================ADD ima on questions
+
+
+img.addEventListener('click', () => {
+    var inp = document.getElementById('imgInp')
+    inp.click()
+
+    inp.addEventListener('change', () => {
+        const file = inp.files[0]
+        const reader = new FileReader();
+
+        reader.addEventListener('load', () => {
+            img.src = reader.result
+        })
+        reader.readAsDataURL(file);
+    })
+
+})
+
 //=========================================================
 function ShakeText() {
     let ShakeText = document.getElementById('ShakeText')
@@ -187,3 +210,4 @@ function SaveQuizOnFireBase() {
     }
     Voltar()
 }
+

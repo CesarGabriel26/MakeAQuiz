@@ -55,6 +55,8 @@ let contador = document.getElementById('contador')
 let opcoesCl = document.querySelectorAll('.opcao')
 let opcoes = document.querySelectorAll('#opcao')
 
+let img = document.getElementById('img')
+
 var index = 0
 var Status = {
     "Erros": 0,
@@ -68,6 +70,12 @@ function Iniciar() {
     contador.innerHTML = `<h3>${index + 1}<h3>`
 
     var Respostas = DataQuizQuestions[index][1]
+
+    if (DataQuizQuestions[index][2]) {
+        img.src = DataQuizQuestions[index][2]
+    }else {
+        img.style.display = 'none'
+    }
 
     for (let i = 0; i < Respostas.length; i++) {
         opcoes[i].innerHTML = Respostas[i][0]
@@ -99,10 +107,10 @@ function Iniciar() {
 }
 
 function Avancar() {
-    if (index < (DataQuizLevels-1)) {
+    if (index < (DataQuizLevels - 1)) {
         index++
         Iniciar()
-    }else{
+    } else {
         Play_Audio("Vitoria")
         let Finalizar = document.getElementById('Finalizar')
         let Acertos = document.getElementById('Acertos')
@@ -129,13 +137,13 @@ function SaveOnList() {
 
     var MyList_ = data[2]
 
-    if(MyList_){
+    if (MyList_) {
         MyList_.forEach(item => {
-            if(item != localStorage.getItem('Quiz')){
+            if (item != localStorage.getItem('Quiz')) {
                 MyList_.push(localStorage.getItem('Quiz'))
             }
         })
-    }else {
+    } else {
         MyList_.push(localStorage.getItem('Quiz'))
     }
 
