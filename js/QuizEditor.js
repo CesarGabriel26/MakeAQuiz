@@ -96,6 +96,7 @@ function Back() {
         Index--
 
         Pergunta.value = data_final[Index][0]
+        img.src = data_final[Index][2]
 
         for (let i = 0; i < data_final[Index][1].length; i++) {
             var array = data_final[Index][1][i]
@@ -111,7 +112,7 @@ function Foward() {
 
     if (data_final[Index] !== undefined) {
         Pergunta.value = data_final[Index][0]
-
+        img.src = data_final[Index][2]
         for (let i = 0; i < data_final[Index][1].length; i++) {
             var array = data_final[Index][1][i]
 
@@ -130,6 +131,7 @@ function Add() {
         if (Button.checked) {
             Index++
             Pergunta.value = ""
+            img.src = ""
             for (let i = 0; i < Respostas.length; i++) {
                 Respostas[i].value = ""
                 RadioButton[i].checked = false
